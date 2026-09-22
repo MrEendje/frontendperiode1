@@ -1,0 +1,57 @@
+// ==========================================================================
+// _tokens.scss – design tokens voor kleur, typografie, afstand
+// ==========================================================================
+
+// --- Breakpoints
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// Mixin om media queries schoon te houden
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @else if $breakpoint == 'md' {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @else if $breakpoint == 'lg' {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @else if $breakpoint == 'xl' {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// --- Kleuren
+$color-primary: #0f5ffd;
+$color-primary-dark: #0a49c9;
+$color-dark: #2b2b2b;
+$color-topbar: #343434;
+$color-heading: #262626;
+$color-body: #737373;
+$color-white: #ffffff;
+$color-light: #f5f6f8;
+$color-border: #e6e6e6;
+
+// --- Typografie
+$font-base: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+$font-heading: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+$fs-body: 16px;
+$fs-small: 14px;
+$fs-h1: clamp(2rem, 6vw, 4rem);
+$fs-h2: clamp(1.75rem, 4.5vw, 3.25rem);
+$fs-h3: clamp(1.125rem, 2vw, 1.375rem);
+
+// --- Ruimte (vertical rhythm)
+$section-y: clamp(3.5rem, 8vw, 7rem);
+$gutter: 30px;
+
+// --- Design onderdelen
+$radius: 0px;
+$transition: 0.3s ease;
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+$header-h: 100px;
+$topbar-h: 56px;

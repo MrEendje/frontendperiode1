@@ -1,0 +1,16 @@
+{
+  "name": "alteco",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Alteco business template - opdracht 1 (grid systeem), nagebouwd met een eigen SCSS grid",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "sass": "^1.80.0",
+    "vite": "^5.4.0"
+  }
+}

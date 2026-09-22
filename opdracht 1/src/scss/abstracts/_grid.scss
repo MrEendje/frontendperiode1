@@ -1,0 +1,107 @@
+// ==========================================================================
+// _grid.scss – herbruikbaar 12-koloms grid systeem als SCSS
+// ==========================================================================
+// Opbouw:
+//   .container  -> max-width + centered, met gutter padding
+//   .row        -> flex, wraps automatisch
+//   .col-*      -> kolom van 1 t/m 12 (12 = volle breedte)
+//
+// Breakpoints: .col-, .col-sm-, .col-md-, .col-lg-, .col-xl-
+// Gutter (spacing tussen kolommen) is altijd $gutter en kan overschreven
+// worden via CSS var: style="--gutter: 40px"
+// ==========================================================================
+
+.container {
+  width: 100%;
+  max-width: 1170px;
+  margin-inline: auto;
+  padding-inline: calc(var(--gutter) / 2);
+  --gutter: #{$gutter};
+}
+
+.container--fluid {
+  max-width: none;
+  --gutter: #{$gutter};
+}
+
+// --- Rij (flex wrapper)
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: calc(var(--gutter) / -2);
+  --gutter: #{$gutter};
+}
+
+.row--flush {
+  --gutter: 0px;
+}
+
+// --- Kolom basis
+[class*='col-'],
+.col {
+  width: 100%;
+  padding-inline: calc(var(--gutter) / 2);
+}
+
+.col {
+  flex: 1 0 0%;
+  width: auto;
+}
+
+.col--auto {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+// --- Kolom-breedte-mixin (herbruikbaar)
+@mixin make-col($size) {
+  width: percentage($size / 12);
+}
+
+// --- Kolommen: mobiel (standaard)
+.col-1  { @include make-col(1);  }
+.col-2  { @include make-col(2);  }
+.col-3  { @include make-col(3);  }
+.col-4  { @include make-col(4);  }
+.col-5  { @include make-col(5);  }
+.col-6  { @include make-col(6);  }
+.col-7  { @include make-col(7);  }
+.col-8  { @include make-col(8);  }
+.col-9  { @include make-col(9);  }
+.col-10 { @include make-col(10); }
+.col-11 { @include make-col(11); }
+.col-12 { @include make-col(12); }
+
+// --- Kolommen per breakpoint (loop)
+@mixin generate-cols($prefix) {
+  .col-#{$prefix}-1  { @include make-col(1);  }
+  .col-#{$prefix}-2  { @include make-col(2);  }
+  .col-#{$prefix}-3  { @include make-col(3);  }
+  .col-#{$prefix}-4  { @include make-col(4);  }
+  .col-#{$prefix}-5  { @include make-col(5);  }
+  .col-#{$prefix}-6  { @include make-col(6);  }
+  .col-#{$prefix}-7  { @include make-col(7);  }
+  .col-#{$prefix}-8  { @include make-col(8);  }
+  .col-#{$prefix}-9  { @include make-col(9);  }
+  .col-#{$prefix}-10 { @include make-col(10); }
+  .col-#{$prefix}-11 { @include make-col(11); }
+  .col-#{$prefix}-12 { @include make-col(12); }
+}
+
+@include respond-to('sm') { @include generate-cols('sm'); }
+@include respond-to('md') { @include generate-cols('md'); }
+@include respond-to('lg') { @include generate-cols('lg'); }
+@include respond-to('xl') { @include generate-cols('xl'); }
+
+// --- Rij-uitlijning
+.row--middle { align-items: center; }
+.row--bottom { align-items: flex-end; }
+.row--center { justify-content: center; }
+.row--between { justify-content: space-between; }
+.row--end { justify-content: flex-end; }
+
+// --- Vertical spacing
+.row--gap-y > [class*='col-'],
+.row--gap-y > .col {
+  margin-block-end: var(--gutter);
+}

@@ -1,0 +1,170 @@
+// ==========================================================================
+// _cards.scss – kaarten voor services, offers, testimonials
+// ==========================================================================
+
+.card {
+  background: $color-white;
+  border-radius: $radius;
+  overflow: hidden;
+  transition: transform $transition, box-shadow $transition;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $shadow;
+  }
+}
+
+.card--no-shadow {
+  box-shadow: none;
+  border: 1px solid $color-border;
+
+  &:hover {
+    box-shadow: $shadow;
+  }
+}
+
+// --- Kaart-afbeelding
+.card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+// --- Kaart-body
+.card__body {
+  padding: 2rem;
+}
+
+.card__title {
+  font-size: 1.125rem;
+  margin-block-end: 1rem;
+  color: $color-heading;
+}
+
+.card__text {
+  color: $color-body;
+  font-size: $fs-small;
+  line-height: 1.8;
+  margin-block-end: 1rem;
+}
+
+.card__footer {
+  margin-block-start: 1.5rem;
+  padding-block-start: 1.5rem;
+  border-top: 1px solid $color-border;
+}
+
+// --- Offers-kaart (met icoon)
+.offer-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+
+  @include respond-to('md') {
+    padding: 2rem;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.offer-card__icon {
+  width: 120px;
+  height: 120px;
+  margin-inline: auto;
+  margin-block-end: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-light;
+  border-radius: 50%;
+  font-size: 3rem;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    fill: #b0b0b0;
+  }
+}
+
+.offer-card__title {
+  font-size: 1.125rem;
+  margin-block-end: 1rem;
+  font-weight: 700;
+  color: $color-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.offer-card__text {
+  color: $color-body;
+  font-size: $fs-body;
+  line-height: 1.8;
+}
+
+// --- Services-kaart (icon + title + text)
+.service-card {
+  text-align: center;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  padding: 2rem 0;
+
+  @include respond-to('md') {
+    padding: 2rem;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+  }
+}
+
+.service-card__icon {
+  width: 80px;
+  height: 80px;
+  margin-inline: auto;
+  margin-block-end: 1.5rem;
+  background: $color-primary;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+
+  svg {
+    width: 50%;
+    height: 50%;
+    fill: $color-white;
+  }
+}
+
+.service-card__label {
+  color: $color-primary;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  margin-block-end: 0.5rem;
+}
+
+.service-card__title {
+  font-size: 1.25rem;
+  margin-block-end: 1rem;
+  font-weight: 700;
+  color: $color-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.service-card__text {
+  color: $color-body;
+  font-size: $fs-body;
+  line-height: 1.8;
+}

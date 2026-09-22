@@ -1,0 +1,109 @@
+// ==========================================================================
+// main.scss – main entrypoint, importeert alle partials
+// ==========================================================================
+
+// Abstracts (tokens, mixins)
+@import 'abstracts/tokens';
+@import 'abstracts/grid';
+
+// Base (reset, typografie)
+@import 'base/reset';
+@import 'base/typography';
+
+// Layout (header, hero)
+@import 'layout/header';
+@import 'layout/hero';
+
+// Components (knoppen, links, kaarten, etc.)
+@import 'components/buttons';
+@import 'components/links';
+@import 'components/section';
+@import 'components/cards';
+
+// --- Utilities
+.u-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Focus-visible overal
+:focus-visible {
+  outline: 3px solid $color-primary;
+  outline-offset: 3px;
+}
+
+// --- Accessibility: minder beweging
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// --- Footer
+footer {
+  background: $color-dark;
+  color: lighten($color-body, 20%);
+  padding-block: 3rem;
+  margin-block-start: $section-y;
+
+  a {
+    color: $color-white;
+    transition: color $transition;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.footer__content {
+  display: grid;
+  gap: 2rem;
+  margin-block-end: 2rem;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  @include respond-to('lg') {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.footer__col h4 {
+  color: $color-white;
+  margin-block-end: 1rem;
+  font-size: 1rem;
+}
+
+.footer__col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__col li {
+  margin-block-end: 0.5rem;
+}
+
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-block-start: 2rem;
+  text-align: center;
+  font-size: $fs-small;
+}

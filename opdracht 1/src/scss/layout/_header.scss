@@ -1,0 +1,233 @@
+// ==========================================================================
+// _header.scss – topbar, navigatie, logo
+// ==========================================================================
+
+// --- Topbar (informatie, social media)
+.topbar {
+  background: $color-topbar;
+  color: $color-white;
+  font-size: $fs-small;
+  padding-block: 0.75rem;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  @include respond-to('md') {
+    flex-wrap: nowrap;
+  }
+}
+
+.topbar__info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $color-white;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}
+
+.topbar__social {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.topbar__social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: $color-white;
+  transition: color $transition;
+
+  &:hover {
+    color: $color-primary;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+}
+
+.topbar__cta {
+  white-space: nowrap;
+}
+
+// --- Header
+header {
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1rem;
+  gap: 2rem;
+}
+
+// --- Logo
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: $color-heading;
+  flex: 0 0 auto;
+  transition: opacity $transition;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  img,
+  svg {
+    width: auto;
+    height: 50px;
+    display: block;
+  }
+}
+
+// --- Navigatie
+nav {
+  display: none;
+  flex: 1 1 auto;
+
+  @include respond-to('lg') {
+    display: flex;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__item {
+  position: relative;
+}
+
+.nav__link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: $color-heading;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color $transition;
+
+  &:hover,
+  &.active {
+    color: $color-primary;
+  }
+}
+
+// --- Hamburgermenu
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  @include respond-to('lg') {
+    display: none;
+  }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $color-heading;
+    border-radius: 2px;
+    transition: all $transition;
+    position: absolute;
+
+    &:nth-child(1) {
+      top: 12px;
+    }
+
+    &:nth-child(2) {
+      top: 22px;
+    }
+
+    &:nth-child(3) {
+      top: 32px;
+    }
+  }
+
+  &.active span {
+    &:nth-child(1) {
+      transform: rotate(45deg);
+      top: 22px;
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 22px;
+    }
+  }
+}
+
+// --- Zoeken
+.header__search {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @include respond-to('sm') {
+    display: flex;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $color-heading;
+  }
+
+  &:hover svg {
+    fill: $color-primary;
+  }
+}

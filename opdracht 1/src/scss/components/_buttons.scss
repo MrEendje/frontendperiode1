@@ -1,0 +1,103 @@
+// ==========================================================================
+// _buttons.scss – knop-varianten en states
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.95em 2em;
+  font-size: $fs-small;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  border-radius: $radius;
+  transition: background-color $transition, color $transition,
+              border-color $transition, transform $transition;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:focus-visible {
+    outline: 3px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+// --- Primair blauw
+.btn--primary {
+  background: $color-primary;
+  color: $color-white;
+
+  &:hover {
+    background: $color-primary-dark;
+    color: $color-white;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// --- Donker
+.btn--dark {
+  background: $color-dark;
+  color: $color-white;
+
+  &:hover {
+    background: $color-primary;
+  }
+}
+
+// --- Transparant met border
+.btn--ghost {
+  border-color: $color-white;
+  color: $color-white;
+  background: transparent;
+
+  &:hover {
+    background: $color-white;
+    color: $color-heading;
+  }
+}
+
+.btn--ghost-dark {
+  border-color: $color-heading;
+  color: $color-heading;
+  background: transparent;
+
+  &:hover {
+    background: $color-heading;
+    color: $color-white;
+  }
+}
+
+// --- Blok-breedte
+.btn--block {
+  display: flex;
+  width: 100%;
+}
+
+// --- Kleinere variant
+.btn--sm {
+  padding: 0.6em 1.2em;
+  font-size: 12px;
+}
+
+// --- Groter
+.btn--lg {
+  padding: 1.2em 2.5em;
+  font-size: 16px;
+}
+
+// --- Icoon
+.btn__icon {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
